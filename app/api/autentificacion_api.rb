@@ -34,7 +34,7 @@ class AutentificacionAPI < Sinatra::Base
         else
           # tengo un problema, las sesiones son diferentes a la hora
           # de autentificarse respecto a la aplicación de las películas
-          session[:usuario] = usuario.login
+          self.session[:usuario] = usuario.login
           puts session
           status 200
           'Login OK'

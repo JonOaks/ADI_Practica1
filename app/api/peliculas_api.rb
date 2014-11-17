@@ -57,8 +57,8 @@ class PeliculasAPI < Sinatra::Base
   put '/:id' do
     datos = JSON.parse(request.body.read)
 
-    # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia debido
-    # a la autentificación
+    # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia
+    # y no he sabido solucionarlos
     session[:usuario] = 'launchpad'
 
     login_actual = session[:usuario]
@@ -75,8 +75,8 @@ class PeliculasAPI < Sinatra::Base
   end
 
   delete '/:id' do
-    # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia debido
-    # a la autentificación
+    # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia
+    # y no he sabido solucionarlos
     session[:usuario] = 'launchpad'
 
     login_actual = session[:usuario]
@@ -93,8 +93,8 @@ class PeliculasAPI < Sinatra::Base
   end
 
   post '/' do
-    # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia debido
-    # a la autentificación
+    # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia
+    # y no he sabido solucionarlos
     session[:usuario] = 'launchpad'
 
     login_actual = session[:usuario]
@@ -132,8 +132,8 @@ class PeliculasAPI < Sinatra::Base
   end
 
   post '/:id/criticas' do
-    # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia debido
-    # a la autentificación
+    # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia
+    # y no he sabido solucionarlos
     session[:usuario] = 'launchpad'
 
     login_actual = session[:usuario]
