@@ -22,6 +22,7 @@ class PeliculasAPITest < MiniTest::Test
     get '/'
     assert_equal last_response.status, 200
     datos = JSON.parse(last_response.body)
+    puts datos
     assert_equal 2, datos.length
     assert_equal 'Harold y Maude',
                  datos[0]['titulo']

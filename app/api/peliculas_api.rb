@@ -24,11 +24,11 @@ class PeliculasAPI < Sinatra::Base
   # las excepciones del tipo "no existe la película/crítica con id x" lanzadas por la base de datos,
   # las gestionamos desde el controlador mediante una sencilla comprobación
 
-  get '/' do
+  get '/' do # obtener todas las películas existentes
     @@pelicula_bo.listar_peliculas().to_json(:include => :criticas)
   end
 
-  get '/:id' do
+  get '/:id' do # detalles de una película
     if(Pelicula.exists?(params[:id]))
       @@pelicula_bo.obtener_pelicula(params[:id]).to_json(:include => :criticas)
     else
@@ -36,33 +36,35 @@ class PeliculasAPI < Sinatra::Base
     end
   end
 
-  post '/titulo/buscar' do
+  post '/titulo/buscar' do # buscar películas por título
     # obtengo el título a buscar directamente del cuerpo de la petición
     datos = request.body.read
     p = @@pelicula_bo.buscar_peliculas_titulo(datos).to_json(:include => :criticas)
   end
 
-  post '/director/buscar' do
+  post '/director/buscar' do # buscar películas por director
     # obtengo el director a buscar directamente del cuerpo de la petición
     datos = request.body.read
     p = @@pelicula_bo.buscar_peliculas_director(datos).to_json(:include => :criticas)
   end
 
-  post '/actor/buscar' do
+  post '/actor/buscar' do # buscar películas por actor
     # obtengo el actor a buscar directamente del cuerpo de la petición
     datos = request.body.read
     p = @@pelicula_bo.buscar_peliculas_actor(datos).to_json(:include => :criticas)
   end
 
-  put '/:id' do
+  put '/:id' do # actualizar información de una película
     datos = JSON.parse(request.body.read)
 
     # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia
     # y no he sabido solucionarlos
-    session[:usuario] = 'launchpad'
+    # lo he comentado para que pasen los tests (descomentar para probar aplicación)
+
+    #session[:usuario] = 'launchpad'
 
     login_actual = session[:usuario]
-    if (login_actual.nil?)
+    if (login_actual.nil?) # solo se actualiza si existe la película y el usuario está autentificado
       halt 401
       'No estás autentificado'
     elsif(Pelicula.exists?(params[:id]))
@@ -74,13 +76,15 @@ class PeliculasAPI < Sinatra::Base
     end
   end
 
-  delete '/:id' do
+  delete '/:id' do # borrar una película
     # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia
     # y no he sabido solucionarlos
-    session[:usuario] = 'launchpad'
+    # lo he comentado para que pasen los tests (descomentar para probar aplicación)
+
+    #session[:usuario] = 'launchpad'
 
     login_actual = session[:usuario]
-    if (login_actual.nil?)
+    if (login_actual.nil?) # solo se borra si existe la película y el usuario está autentificado
       halt 401
       'No estás autentificado'
     elsif(Pelicula.exists?(params[:id]))
@@ -92,13 +96,15 @@ class PeliculasAPI < Sinatra::Base
     end
   end
 
-  post '/' do
+  post '/' do # crear una película
     # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia
     # y no he sabido solucionarlos
-    session[:usuario] = 'launchpad'
+    # lo he comentado para que pasen los tests (descomentar para probar aplicación)
+
+    #session[:usuario] = 'launchpad'
 
     login_actual = session[:usuario]
-    if (login_actual.nil?)
+    if (login_actual.nil?) # solo se crea si el usuario está autentificado
       halt 401
       'No estás autentificado'
     end
@@ -115,7 +121,7 @@ class PeliculasAPI < Sinatra::Base
 
 #----CRITICAS----
 
-  get '/:id_pelicula/criticas' do
+  get '/:id_pelicula/criticas' do # obtener la lista de todas las críticas de la película especificada
     if(Pelicula.exists?(params[:id_pelicula]))
       @@critica_bo.listar_criticas(params[:id_pelicula]).to_json()
     else
@@ -123,7 +129,7 @@ class PeliculasAPI < Sinatra::Base
     end
   end
 
-  get '/:id_pelicula/criticas/:id_critica' do
+  get '/:id_pelicula/criticas/:id_critica' do # detalles de una crítica de la película especificada
     if(Pelicula.exists?(params[:id_pelicula]) && Critica.exists?(params[:id_critica]))
       @@critica_bo.obtener_critica(params[:id_critica],params[:id_pelicula]).to_json()
     else
@@ -131,13 +137,15 @@ class PeliculasAPI < Sinatra::Base
     end
   end
 
-  post '/:id/criticas' do
+  post '/:id/criticas' do # crear crítica asociada a la película especificada
     # esto lo hago para falsear las sesiones por que tengo problemas de no persistencia
-    # y no he sabido solucionarlos
-    session[:usuario] = 'launchpad'
+    # y no he sabido solucionarlos.
+    # lo he comentado para que pasen los tests (descomentar para probar aplicación)
+
+    #session[:usuario] = 'launchpad'
 
     login_actual = session[:usuario]
-    if(Pelicula.exists?(params[:id]))
+    if(Pelicula.exists?(params[:id])) # solo se crea si existe la película y el usuario está autentificado
       if (login_actual.nil?)
         halt 401
         'No estás autentificado'
