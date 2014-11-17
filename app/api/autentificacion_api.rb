@@ -32,10 +32,11 @@ class AutentificacionAPI < Sinatra::Base
           status 401
           'Login y/o password incorrectos'
         else
-          # no me funciona lo de abajo (error login no existe)
-          # esto si funciona a la hora de autentificarse pero no en los tests -> usuario[0][:login]
+          # no me funciona lo de abajo (error: no existe método login asociado a usuario)
+          # aunque ponga yo a mano el login no funciona igual, las sesiones son diferentes a la hora
+          # de autentificarse y la aplicación de las películas
           session[:usuario] = usuario.login
-          puts session[:usuario]
+          puts session
           status 200
           'Login OK'
         end

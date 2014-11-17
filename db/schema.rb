@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20141117010820) do
     t.integer "usuario_id"
   end
 
-  create_table "peliculasgeneros", id: false, force: true do |t|
+  create_table "peliculas_generos", id: false, force: true do |t|
     t.integer "pelicula_id"
     t.integer "genero_id"
   end

@@ -4,7 +4,7 @@ class CreateGeneros < ActiveRecord::Migration
       t.string :genero
     end
 
-    create_table :peliculasgeneros, {:id=>false} do |t|
+    create_table :peliculas_generos, {:id=>false} do |t|
       t.belongs_to :pelicula
       t.belongs_to :genero
     end

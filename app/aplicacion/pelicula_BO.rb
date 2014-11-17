@@ -1,4 +1,3 @@
-require 'app/dominio/peliculagenero'
 require 'app/dominio/genero'
 require 'app/dominio/pelicula'
 require 'app/dominio/usuario'

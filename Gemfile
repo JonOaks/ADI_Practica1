@@ -9,7 +9,6 @@ gem 'json'
 gem 'sinatra-activerecord'
 gem 'sqlite3'
 
-
 group :test do
   gem 'minitest', '>=5.3.4'
   gem 'mocha'

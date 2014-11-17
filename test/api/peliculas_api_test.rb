@@ -17,6 +17,7 @@ class PeliculasAPITest < MiniTest::Test
   end
 
 #----TESTS REFERENTES PELICULAS----
+  # existen dos películas en la base de datos
   def test_lista
     get '/'
     assert_equal last_response.status, 200
