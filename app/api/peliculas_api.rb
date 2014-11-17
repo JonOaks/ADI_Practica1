@@ -62,7 +62,7 @@ class PeliculasAPI < Sinatra::Base
     # lo he comentado para que pasen los tests (descomentar para probar aplicación)
 
     #session[:usuario] = 'launchpad'
-
+    puts session.inspect
     login_actual = session[:usuario]
     if (login_actual.nil?) # solo se actualiza si existe la película y el usuario está autentificado
       halt 401
