@@ -30,7 +30,7 @@ class PeliculasAPI < Sinatra::Base
 
   get '/:id' do
     if(Pelicula.exists?(params[:id]))
-      @@pelicula_bo.obtener_pelicula(params[:id]).to_json(:include => :criticas)
+      @@pelicula_bo.obtener_pelicula(params[:id]).to_json()
     else
       status 404
     end
@@ -120,12 +120,12 @@ class PeliculasAPI < Sinatra::Base
   end
 
   post '/:id/criticas' do
-    session[:usuario] = 'launchpad'
+    #session[:usuario] = 'launchpad'
     login_actual = session[:usuario]
     if(Pelicula.exists?(params[:id]))
       if (login_actual.nil?)
-      halt 401
-      'No estás autentificado'
+        halt 401
+        'No estás autentificado'
       end
       begin
         datos = JSON.parse(request.body.read)
