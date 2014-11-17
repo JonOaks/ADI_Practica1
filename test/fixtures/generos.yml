@@ -1,0 +1,8 @@
+
+drama:
+  genero: drama
+  id: 1
+
+comedia:
+  genero: comedia
+  id: 2

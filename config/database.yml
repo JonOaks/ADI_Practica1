@@ -1,0 +1,20 @@
+# Configure the database used when in the development environment
+development:
+  adapter: sqlite3
+  encoding: unicode
+  database: db/cf_development.sqlite3
+  pool: 5
+
+# Configure the database used when in the test environment
+test:
+  adapter: sqlite3
+  encoding: unicode
+  database: db/cf_test.sqlite3
+  pool: 5
+
+# Configure the database used when in the production environment
+production:
+  adapter: sqlite3
+  encoding: unicode
+  database: db/cf_production.sqlite3
+  pool: 5
