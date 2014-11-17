@@ -32,9 +32,8 @@ class AutentificacionAPI < Sinatra::Base
           status 401
           'Login y/o password incorrectos'
         else
-          # no me funciona lo de abajo (error: no existe método login asociado a usuario)
-          # aunque ponga yo a mano el login no funciona igual, las sesiones son diferentes a la hora
-          # de autentificarse y la aplicación de las películas
+          # tengo un problema, las sesiones son diferentes a la hora
+          # de autentificarse respecto a la aplicación de las películas
           session[:usuario] = usuario.login
           puts session
           status 200
