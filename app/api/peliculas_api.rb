@@ -102,7 +102,7 @@ class PeliculasAPI < Sinatra::Base
     # lo he comentado para que pasen los tests (descomentar para probar aplicación)
 
     #session[:usuario] = 'launchpad'
-
+    puts env['rack.session']
     login_actual = session[:usuario]
     if (login_actual.nil?) # solo se crea si el usuario está autentificado
       halt 401
