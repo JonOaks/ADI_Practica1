@@ -20,6 +20,7 @@ class AutentificacionAPI < Sinatra::Base
 
   get '/hola' do
     puts 'se ha llamado a /hola'
+    puts session.inspect
     'hola'
   end
 
@@ -36,7 +37,6 @@ class AutentificacionAPI < Sinatra::Base
           # de autentificarse respecto a la aplicación de las películas
           session[:usuario] = usuario.login
           puts session.inspect
-          puts session
           status 200
           'Login OK'
         end

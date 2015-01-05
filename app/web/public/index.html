@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Doble 8 ... y el cine sin fin</h1>
+
+<div id="peliculas">
+
+</div>
+<script src="js/lib/mustache.js"></script>
+<script src="js/peliculas.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script type="x-tmpl" id="peliculas_tmpl">
+<!--el punto si nuestra colección no tiene nombre en el json -->
+{{#.}}
+    <div id="pel_{{id}}">
+        <b>{{titulo}}</b><br>
+        <b>Creador: </b>{{usuario_id}}<br>
+        <a href="detalles.html?id={{id}}" target="_self">Más información</a>
+    </div>
+{{/.}}
+</script>
+</body>
+</html>

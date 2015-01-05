@@ -7,6 +7,7 @@ $LOAD_PATH << File.expand_path(__dir__)
 
 require 'app/api/peliculas_api'
 require 'app/api/autentificacion_api'
+require 'app/web/servidor_web'
 
 use Rack::Session::Pool
 
@@ -16,4 +17,8 @@ end
 
 map '/api/autentificacion' do
   run AutentificacionAPI
+end
+
+map '/web' do
+  run ServidorWeb
 end

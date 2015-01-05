@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1 id="titulo"> </h1>
+<div id="pelicula">
+
+</div>
+<br>
+<div id="criticas">
+
+</div>
+<script src="js/lib/mustache.js"></script>
+<script src="js/detalles.js"></script>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script type="x-tmpl" id="titulo_tmpl">
+{{#.}}
+    {{titulo}}
+{{/.}}
+</script>
+<script type="x-tmpl" id="pelicula_tmpl">
+{{#.}}
+    <div id="pelicula_{{id}}">
+        <b>Título orignial:</b> {{titulo}} <br>
+        <b>Año:</b> {{año}} <br>
+        <b>Duración:</b> {{duracion}} <br>
+        <b>País:</b> {{pais}} <br>
+        <b>Director:</b> {{director}} <br>
+        <b>Guión:</b> {{guion}} <br>
+        <b>Música:</b> {{musica}} <br>
+        <b>Fotografía:</b> {{fotografia}} <br>
+        <b>Reparto:</b> {{reparto}} <br>
+        <b>Productora:</b> {{productora}} <br>
+        <b>Sinopsis:</b> {{sinopsis}} <br>
+    </div>
+{{/.}}
+</script>
+</body>
+</html>
