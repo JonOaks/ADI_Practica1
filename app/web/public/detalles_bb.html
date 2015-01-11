@@ -53,27 +53,50 @@
 </nav>
 
 <!-- Contenedores principales -->
-<div id="peliculas" style="margin-left: 82px; margin-right: 82px;">
+<h1 id="titulo" style="margin-left: 82px; margin-right: 82px;"></h1>
+<div id="pelicula" style="margin-left: 82px; margin-right: 82px;">
 
 </div>
 
 <script src="js/lib/mustache.js"></script>
 <script src="js/jquery-1.11.1.min.js"></script>
-<script src="js/peliculas.js"></script>
+<script src="js/lib/underscore-min.js"></script>
+<script src="js/lib/zepto.min.js"></script>
+<script src="js/lib/backbone-min.js"></script>
+<script src="js/detalles_bb.js"></script>
 <script src="js/login.js"></script>
 <script src="js/logout.js"></script>
 
 <!-- Templates -->
-<script type="x-tmpl" id="peliculas_tmpl">
-<!--el punto si nuestra colección no tiene nombre en el json -->
-{{#.}}
-    <div id="pel_{{id}}">
-        <b>{{titulo}}</b><br>
-        <b>Creador: </b>{{usuario_id}}<br>
-        <a href="detalles.html?id={{id}}" target="_self">Más información</a>
-        <br/><br/>
+<script type="x-tmpl" id="titulo_tmpl">
+<% _.each(peliculas, function(pelicula) { %>
+<% print(pelicula.titulo); %>
+<% }); %>
+</script>
+
+<script type="text/template" id="pelicula_tmpl">
+    <div>
+        <% _.each(peliculas, function(pelicula) { %>
+        <b>Título original:</b> <% print(pelicula.titulo); %> <br>
+        <b>Año:</b> <% print(pelicula.año); %> <br>
+        <b>Duración:</b> <% print(pelicula.duracion); %> <br>
+        <b>País:</b> <% print(pelicula.pais); %> <br>
+        <b>Director:</b> <% print(pelicula.director); %> <br>
+        <b>Guión:</b> <% print(pelicula.guion); %> <br>
+        <b>Música:</b> <% print(pelicula.musica); %> <br>
+        <b>Fotografía:</b> <% print(pelicula.fotografia); %> <br>
+        <b>Reparto:</b> <% print(pelicula.reparto); %> <br>
+        <b>Productora:</b> <% print(pelicula.productora); %> <br>
+        <b>Sinopsis:</b> <% print(pelicula.sinopsis); %> <br><br>
+        <b>Críticas</b> <br>
+        <div id="criticas" style="margin-left: 10px">
+            <% _.each(pelicula.criticas, function(critica) { %>
+            <% print(critica.fecha); %><br>
+            <% print(critica.texto); %><br>
+            <% }); %>
+        </div>
+        <% }); %>
     </div>
-{{/.}}
 </script>
 
 </body>

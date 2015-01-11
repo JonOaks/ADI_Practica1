@@ -20,7 +20,6 @@ function comprobar_localstorage() {
 }
 
 function pedir_peliculas() {
-    console.log("entro")
     var xhr = new XMLHttpRequest()
     xhr.open("GET", "/api/peliculas", true)
     xhr.onreadystatechange = callback_peliculas

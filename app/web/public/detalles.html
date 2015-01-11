@@ -45,13 +45,14 @@
                 <button id="btn-login" type="button" class="btn btn-default">Iniciar sesión</button>
             </form>
             <ul class="nav navbar-nav navbar-right">
-                <li><p id="username" class="navbar-text" style="display: none;">username</p></li>
+                <li><p id="username" class="navbar-text" style="display: none;">launchpad</p></li>
                 <button id="btn-logout" type="button" class="btn btn-default navbar-btn" style="display: none;">Cerrar sesión</button>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 
+<!-- Contenedores principales -->
 <h1 id="titulo" style="margin-left: 82px; margin-right: 82px;"></h1>
 <div id="pelicula" style="margin-left: 82px; margin-right: 82px;">
 
@@ -59,11 +60,11 @@
 
 <script src="js/lib/mustache.js"></script>
 <script src="js/lib/jquery-1.11.1.min.js"></script>
-<script src="js/lib/bootstrap.min.js"></script>
 <script src="js/detalles.js"></script>
 <script src="js/login.js"></script>
 <script src="js/logout.js"></script>
 
+<!-- Templates -->
 <script type="x-tmpl" id="titulo_tmpl">
 {{#.}}
     {{titulo}}

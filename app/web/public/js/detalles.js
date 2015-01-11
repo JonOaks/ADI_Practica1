@@ -1,10 +1,10 @@
 /**
  * Created by jdph on 18/11/14.
  */
-window.onload = start
+window.onload = start // ¡APAÑO! (lo hago de esta forma para poder ejecutar dos funciones al cargar la página)
 
 function start() {
-    comprobar_localstorage();
+    comprobar_localstorage(); // compruebo si ya se ha inciado sesión para modificar la web dinámicamente
     pedir_informacion();
 }
 
@@ -19,7 +19,7 @@ function comprobar_localstorage() {
     }
 }
 
-function getUrlVars() {
+function getUrlVars() { // función que utilizo para obtener los parámetros de la url
     var vars = [], hash;
     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
     for(var i=0; i<hashes.length; i++)
