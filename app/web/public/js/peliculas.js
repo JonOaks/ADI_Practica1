@@ -1,9 +1,26 @@
 /**
  * Created by jdph on 18/11/14.
  */
-window.onload = pedir_peliculas
+window.onload = start
+
+function start() {
+    comprobar_localstorage();
+    pedir_peliculas();
+}
+
+function comprobar_localstorage() {
+    if(localStorage.getItem("login")!=null) {
+        document.getElementById("login").style.display = 'none'
+        document.getElementById("password").style.display = 'none'
+        document.getElementById("btn-login").style.display = 'none'
+        document.getElementById("username").style.display = 'block'
+        document.getElementById("username").value = document.getElementById("login").value
+        document.getElementById("btn-logout").style.display = 'block'
+    }
+}
 
 function pedir_peliculas() {
+    console.log("entro")
     var xhr = new XMLHttpRequest()
     xhr.open("GET", "/api/peliculas", true)
     xhr.onreadystatechange = callback_peliculas

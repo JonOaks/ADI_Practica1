@@ -1,7 +1,23 @@
 /**
  * Created by jdph on 18/11/14.
  */
-window.onload = pedir_informacion
+window.onload = start
+
+function start() {
+    comprobar_localstorage();
+    pedir_informacion();
+}
+
+function comprobar_localstorage() {
+    if(localStorage.getItem("login")!=null) {
+        document.getElementById("login").style.display = 'none'
+        document.getElementById("password").style.display = 'none'
+        document.getElementById("btn-login").style.display = 'none'
+        document.getElementById("username").style.display = 'block'
+        document.getElementById("username").value = localStorage.getItem("login")
+        document.getElementById("btn-logout").style.display = 'block'
+    }
+}
 
 function getUrlVars() {
     var vars = [], hash;

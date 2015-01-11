@@ -2,17 +2,66 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
+    <!-- CSS de Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
-<h1>Doble 8 ... y el cine sin fin</h1>
+<!-- Barra de navegación principal -->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="index.html">
+                <img src="images/cinexin.png" />
+            </a>
+        </div>
 
-<div id="peliculas">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="index.html">Doble 8... y el cine sin fin <span class="sr-only">(current)</span></a></li>
+            </ul>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </form>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input id="login" type="text" class="form-control" placeholder="usuario">
+                    <input id="password" type="password" class="form-control" placeholder="contraseña">
+                </div>
+                <button id="btn-login" type="button" class="btn btn-default">Iniciar sesión</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><p id="username" class="navbar-text" style="display: none;">launchpad</p></li>
+                <button id="btn-logout" type="button" class="btn btn-default navbar-btn" style="display: none;">Cerrar sesión</button>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<div id="peliculas" style="margin-left: 82px; margin-right: 82px;">
 
 </div>
+
 <script src="js/lib/mustache.js"></script>
-<script src="js/peliculas.js"></script>
 <script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/peliculas.js"></script>
+<script src="js/login.js"></script>
+<script src="js/logout.js"></script>
+
+
 <script type="x-tmpl" id="peliculas_tmpl">
 <!--el punto si nuestra colección no tiene nombre en el json -->
 {{#.}}
@@ -20,8 +69,10 @@
         <b>{{titulo}}</b><br>
         <b>Creador: </b>{{usuario_id}}<br>
         <a href="detalles.html?id={{id}}" target="_self">Más información</a>
+        <br/><br/>
     </div>
 {{/.}}
 </script>
+
 </body>
 </html>
