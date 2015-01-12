@@ -1,7 +1,3 @@
-/**
- * Created by jdph on 11/01/15.
- */
-
 document.getElementById("btn-logout").onclick = logout
 
 function logout() {
@@ -23,4 +19,5 @@ function operaciones_logout() {
     document.getElementById("btn-login").style.display = 'inline'
     document.getElementById("username").style.display = 'none'
     document.getElementById("btn-logout").style.display = 'none'
+    //document.getElementById("btn-nueva").style.display = 'none'
 }

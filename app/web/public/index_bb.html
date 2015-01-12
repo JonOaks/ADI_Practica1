@@ -21,7 +21,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="brand" href="index.html">
+            <a class="brand" href="index_bb.html">
                 <img src="images/cinexin.png" />
             </a>
         </div>
@@ -29,14 +29,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li><a href="index.html">Doble 8... y el cine sin fin <span class="sr-only">(current)</span></a></li>
+                <li><a href="index_bb.html">Doble 8... y el cine sin fin <span class="sr-only">(current)</span></a></li>
             </ul>
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-default">Buscar</button>
-            </form>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
                     <input id="login" type="text" class="form-control" placeholder="usuario">
@@ -54,7 +48,6 @@
 
 <!-- Contenedores principales -->
 <div id="peliculas" style="margin-left: 82px; margin-right: 82px;">
-
 </div>
 
 <script src="js/lib/mustache.js"></script>
@@ -65,18 +58,7 @@
 <script src="js/peliculas_bb.js"></script>
 <script src="js/login.js"></script>
 <script src="js/logout.js"></script>
-
-<!-- Templates -->
-<script type="text/template" id="peliculas_tmpl">
-    <div>
-        <% _.each(peliculas, function(pelicula) { %>
-            <b><% print(pelicula.titulo); %></b><br>
-            <b>Creador: </b><% print(pelicula.usuario_id); %><br>
-            <a href="detalles_bb.html?id=<%= pelicula.id %>" target="_self">Más información</a>
-            <br/><br/>
-        <% }); %>
-    </div>
-</script>
+<script src="js/lib/json2.js"> </script>
 
 </body>
 </html>

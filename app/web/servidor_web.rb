@@ -4,6 +4,6 @@ require 'sinatra/reloader'
 
 class ServidorWeb < Sinatra::Base
   get '/' do
-    redirect to('/index.html')
+    redirect to('/index_bb.html')
   end
 end

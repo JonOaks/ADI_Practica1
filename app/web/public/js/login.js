@@ -1,7 +1,3 @@
-/**
- * Created by jdph on 10/01/15.
- */
-
 document.getElementById("btn-login").onclick = login
 
 function login() {

@@ -1,6 +1,3 @@
-/**
- * Created by jdph on 11/01/15.
- */
 window.onload = comprobar_localstorage()// compruebo si ya se ha inciado sesión para modificar la web dinámicamente
 
 function comprobar_localstorage() {
